@@ -67,7 +67,7 @@ final class JWTAuthPipe
         return $token;
     }
 
-    private function validationException(): void
+    private function validationException(): never
     {
         throw ValidationException::withMessages([
             'username' => __('moonshine::auth.failed'),

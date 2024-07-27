@@ -48,9 +48,9 @@ final class JWTAuthPipe
             ->first();
 
         if (is_null($user) || ! Hash::check(
-                request()->input('password'),
-                $user->{moonshineConfig()->getUserField('password')}
-            )) {
+            request()->input('password'),
+            $user->{moonshineConfig()->getUserField('password')}
+        )) {
             RateLimiter::hit(
                 $this->getThrottleKey($request)
             );

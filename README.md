@@ -2,6 +2,14 @@
 
 A simple way to switch your admin panel to API mode and interact via tokens
 
+[Documentation](https:://moonshine-laravel.com/docs/3.x/frontend/api#jwt)
+
+## Requirements
+
+- MoonShine 3+
+- Laravel 10+
+- PHP 8.2+
+
 #### Installation
 
 ```shell

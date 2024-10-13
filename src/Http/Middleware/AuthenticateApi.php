@@ -20,7 +20,7 @@ class AuthenticateApi extends Middleware
 
         $guard = MoonShineAuth::getGuard();
 
-        if(empty($request->bearerToken())) {
+        if (empty($request->bearerToken())) {
             $this->unauthenticated($request, [$guard, ...$guards]);
         }
 

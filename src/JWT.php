@@ -49,11 +49,11 @@ final readonly class JWT implements JWTContract
             )
         );
 
-        if(! $configuration->validator()->validate($parsedToken, ...$configuration->validationConstraints())) {
+        if (! $configuration->validator()->validate($parsedToken, ...$configuration->validationConstraints())) {
             throw new JWTValidatorException('Validation failed');
         }
 
-        if($parsedToken->isExpired(now())) {
+        if ($parsedToken->isExpired(now())) {
             throw new JWTExpiredException('Token is expired');
         }
 

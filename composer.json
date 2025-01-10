@@ -50,7 +50,8 @@
         "moonshine/moonshine": "<3.0"
     },
     "scripts": {
-        "rector": "vendor/bin/rector process --clear-cache"
+        "rector": "vendor/bin/rector process --clear-cache",
+        "test": "vendor/bin/phpunit"
     },
     "extra": {
         "laravel": {

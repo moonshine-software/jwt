@@ -3,6 +3,8 @@
 namespace MoonShine\JWT\Tests;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use MoonShine\JWT\Http\Middleware\AuthenticateApi;
+use MoonShine\JWT\JWTAuthPipe;
 use MoonShine\JWT\Providers\JWTServiceProvider;
 use MoonShine\JWT\Testing\TestingServiceProvider;
 use MoonShine\Laravel\Models\MoonshineUser;
@@ -29,17 +31,24 @@ abstract class TestCase extends Orchestra
 
     protected function defineEnvironment($app): void
     {
-        $app['config']->set('app.debug', 'true');
+        $app['config']->set('app.debug', true);
         $app['config']->set('moonshine.cache', 'array');
+        $app['config']->set('moonshine.use_migrations', true);
+        $app['config']->set('moonshine.use_notifications', true);
+        $app['config']->set('moonshine.use_database_notifications', false);
+        $app['config']->set('moonshine.auth.enabled', true);
+        $app['config']->set('moonshine.auth.middleware', AuthenticateApi::class);
+        $app['config']->set('moonshine.auth.pipelines', [JWTAuthPipe::class]);
+        $app['config']->set('moonshine.middleware', []);
         $app['config']->set('moonshine-jwt.secret', 'ESq0N8DIYKeAULqWaT4c4XiHJvxnum08MjeG4jELdGI=');
     }
 
     protected function getPackageProviders($app): array
     {
         return [
-            MoonShineServiceProvider::class,
-            JWTServiceProvider::class,
             TestingServiceProvider::class,
+            JWTServiceProvider::class,
+            MoonShineServiceProvider::class,
         ];
     }
 

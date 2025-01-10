@@ -15,6 +15,7 @@ return (new PhpCsFixer\Config())
         '@PSR12' => true,
         'array_syntax' => ['syntax' => 'short'],
         'ordered_imports' => ['sort_algorithm' => 'alpha'],
+        'nullable_type_declaration_for_default_null_value' => true,
         'no_unused_imports' => true,
         'not_operator_with_successor_space' => true,
         'trailing_comma_in_multiline' => true,

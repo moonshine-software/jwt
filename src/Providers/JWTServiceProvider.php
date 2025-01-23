@@ -16,7 +16,7 @@ final class JWTServiceProvider extends ServiceProvider
             __DIR__ . '/../../config/moonshine-jwt.php' => config_path('moonshine-jwt.php'),
         ]);
 
-        $this->app->bind(JWTContract::class, fn(): JWT => new JWT(
+        $this->app->bind(JWTContract::class, fn (): JWT => new JWT(
             config('moonshine-jwt.secret')
         ));
     }

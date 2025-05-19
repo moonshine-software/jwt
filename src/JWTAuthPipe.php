@@ -39,8 +39,7 @@ final class JWTAuthPipe
     {
         $this->ensureIsNotRateLimited($request);
 
-        $user = MoonShineAuth::getModel()
-            ?->newQuery()
+        $user = MoonShineAuth::getModel()->newQuery()
             ->where(
                 moonshineConfig()->getUserField('username', 'email'),
                 request()->input('username')

@@ -28,7 +28,7 @@ JWT_SECRET=YOUR_BASE64_SECRET_HERE
 
 #### Usage
 
-#### MoonShineServiceProvider
+#### moonshine.php
 
 ```php
 use MoonShine\JWT\JWTAuthPipe;

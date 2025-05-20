@@ -31,11 +31,16 @@ JWT_SECRET=YOUR_BASE64_SECRET_HERE
 #### MoonShineServiceProvider
 
 ```php
-$config
-    ->middlewares([])
-    ->authPipelines([
-        JWTAuthPipe::class,
-    ])
-    ->authMiddleware(AuthenticateApi::class);
+use MoonShine\JWT\JWTAuthPipe;
+use MoonShine\JWT\Http\Middleware\AuthenticateApi;
+return [
+    'middleware' => [],
+    'auth' => [
+        'middleware' => AuthenticateApi::class,
+        'pipelines' => [
+            JWTAuthPipe::class
+        ],
+    ]
+];
 ```
 

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use MoonShine\Laravel\Http\Responses\MoonShineJsonResponse;
+use MoonShine\Crud\JsonResponse;
 use MoonShine\Laravel\MoonShineAuth;
 use Random\RandomException;
 
@@ -24,7 +24,7 @@ final class JWTAuthPipe
         if ($request->wantsJson()) {
             $token = $this->getAuthToken($request);
 
-            return MoonShineJsonResponse::make([
+            return JsonResponse::make([
                 'token' => $token,
             ]);
         }

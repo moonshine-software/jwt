@@ -28,7 +28,7 @@ JWT_SECRET=YOUR_BASE64_SECRET_HERE
 
 #### Usage
 
-#### moonshine.php
+#### config/moonshine.php in v3.*
 
 ```php
 use MoonShine\JWT\JWTAuthPipe;
@@ -37,6 +37,24 @@ return [
     'middleware' => [],
     'auth' => [
         'middleware' => AuthenticateApi::class,
+        'pipelines' => [
+            JWTAuthPipe::class
+        ],
+    ]
+];
+```
+
+#### config/moonshine.php in v4.*
+
+```php
+use MoonShine\JWT\JWTAuthPipe;
+use MoonShine\JWT\Http\Middleware\AuthenticateApi;
+return [
+    'middleware' => [],
+    'auth' => [
+        'middleware' => [
+            AuthenticateApi::class,
+        ],
         'pipelines' => [
             JWTAuthPipe::class
         ],
